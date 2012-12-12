@@ -1,0 +1,12 @@
+%h3 Gem not found
+%p Here are some possible matches
+
+%table{class: 'table'}
+  - @gems.each do |gem|
+    %tr
+      %td
+        %strong= gem["name"]
+      %td= gem["info"]
+      %td
+        %a{:href => "/?q=#{gem["name"]}"}
+          View

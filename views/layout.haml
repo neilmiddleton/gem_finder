@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title Gem Search
+    %link{:href => "/css/bootstrap.css", :rel => "stylesheet"}
+    %link{:href => "/css/bootstrap_responsive.css", :rel => "stylesheet"}
+    :css
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        max-width: 350px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+
+  %body
+    %a{href: "https://github.com/neilmiddleton/gem_finder"}
+      %img{style: "position: absolute; top: 0; left; 0; border: 0",
+        src: "https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png",
+        alt: "Fork me on Github"}
+    .container
+      .row
+        %h1
+          Gem search
+        %form{:method => 'get'}
+          %input.input-large.search-query{type: 'text', name: "q"}
+          %button{class: 'btn', type: 'submit'}
+            Search
+      .row.span12
+        = yield

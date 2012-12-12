@@ -9,8 +9,10 @@ get "/" do
   if params.has_key?("q")
     g = GemWrapper.new(params["q"])
     target = g.github_page
-    redirect target unless target.nil?
-    'Gem not found'
+    redirect target and return true unless target.nil?
+
+    @gems = Gems.search(params["q"])
+    haml :missing
   else
     haml :index
   end
