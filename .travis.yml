@@ -7,6 +7,7 @@ env:
 after_script:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - heroku plugins:install https://github.com/ddollar/heroku-anvil
+  - if [[ "$TRAVIS_PULL_REQUEST" == "true" ]]; then echo "This is a pull request. No deployment will be done."; exit 0; fi
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then heroku build -r gemfinder -b https://github.com/heroku/heroku-buildpack-ruby.git; fi
 
 
