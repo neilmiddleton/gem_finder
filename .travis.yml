@@ -1,3 +1,12 @@
 language: ruby
 
+env:
+  global:
+    - secure: "iRz7u0qOJK/xuWvdLnp5iq87MpwQzzcgfJNdQSikF7MS8wmzWBNRuEpvLDCE\n30Qbd+JiHjzJv+UrtL5lf6XEeSk4ZvfNODp3tuUAbNmqB0KgXW0JWZB5Tm0W\nVFxk1SNHvfCAdjxaQRolNgFMJCl5bur4YCRQEKIREvRKsQtldVc="
+
+after_script:
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  - heroku plugins:install https://github.com/ddollar/heroku-anvil
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then heroku build -r gemfinder -b https://github.com/heroku/heroku-buildpack-ruby.git; fi
+
 
