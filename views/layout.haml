@@ -13,6 +13,7 @@
 
       h1 {
         text-align: center;
+        margin: 20px auto 40px auto;
       }
 
       form {
@@ -44,3 +45,8 @@
             Search
       .row.span12
         = yield
+      .row
+        .span2.offset5
+          %small
+            by
+            %a{href: 'http://neilmiddleton.com'} @neilmiddleton
